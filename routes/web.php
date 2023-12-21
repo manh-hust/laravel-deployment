@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/check', function () {
-    return "Hello World!";
+    return env('HELLO_WORLD', 'Not Set');
 });
