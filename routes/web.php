@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Route::get('/check', function () {
     return env('HELLO_WORLD', 'Not Set');
+});
+
+Route::get('/users', function () {
+    return response()->json(User::all());
 });
