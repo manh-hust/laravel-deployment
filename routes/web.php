@@ -24,3 +24,11 @@ Route::get('/check', function () {
 Route::get('/users', function () {
     return response()->json(User::all());
 });
+
+Route::get('/users/{id}', function ($id) {
+    $user = User::find($id);
+    if (!$user) {
+        return response()->json(['error' => 'User not found'], 404);
+    }
+    return response()->json($user);
+});
